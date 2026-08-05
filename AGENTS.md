@@ -11,9 +11,6 @@ Use Bun (the package manager and runtime); `package.json` requires Bun >= 1.0.26
 | Run with file watching / hot reload | `bun run dev:watch` / `bun run dev:hot` |
 | Build the distributable | `bun run build` |
 | Run the built JavaScript | `bun run start` |
-| Run all tests | `bun test` or `bun run test` |
-| Run one test file | `bun test ./tests/index.test.ts` |
-| Watch tests | `bun run test:watch` |
 | Type-check (there is no package script) | `bunx tsc --noEmit` |
 | Check formatting and lint rules | `bunx biome check .` |
 | Apply safe Biome fixes | `bun run biome:fix` |
@@ -36,10 +33,6 @@ Source module boundaries are intentionally light:
 - `src/utils/` holds reusable utility functions.
 - `src/api/` is reserved for external-service clients; it currently contains documentation only.
 - `src/@types/` holds exported shared TypeScript types and interfaces.
-- `tests/` contains unit tests. The checked-in test uses `bun:test`.
-
-Although `jest.config.json` and Jest dependencies are present, the project scripts and CI run tests with Bun. Prefer Bun's test APIs and `bun test` unless Jest support is deliberately being extended.
-
 ## Project-specific configuration
 
 - `biome.json` is the formatter/linter configuration. It specifies tabs, double quotes, semicolons, trailing commas, and an 80-column line width; this overrides the root EditorConfig indentation preference for code formatted by Biome.

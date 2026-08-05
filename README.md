@@ -13,12 +13,11 @@ Instant Value - All basic tools included and configured:
 - 🧅 Use Bun as package manager
 - 🌈 ESM
 - 🧪 Biome for code formatting and linting
-- ✅ Jest or Bun test for fast unit testing and code coverage
-- 📚 Type definitions for Bun.js and Jest
+- 📚 Type definitions for Bun.js
 - ⚙️ EditorConfig for consistent coding style
 - 📦 NPM scripts for common operations
 - 🛠️ Example configuration for GitHub Actions
-- 📝 Simple example of TypeScript code and unit test
+- 📝 Simple example of TypeScript code
 - 🐗 Run tasks with Grunt (example for backup)
 - 🚄 Build faster
 - 🖥️ Ungit for version control (git) with a GUI
@@ -88,8 +87,7 @@ const user = await createUser({
 const foundUser = await findUserByEmail(user.email);
 ```
 
-Call `closeDatabase()` during graceful shutdown or test cleanup. The model unit
-test validates schema behavior without requiring a running MongoDB instance.
+Call `closeDatabase()` during graceful shutdown.
 
 ### 📌 NPM Scripts
 
@@ -101,7 +99,7 @@ test validates schema behavior without requiring a running MongoDB instance.
 
 **Clean**
 
-- 📜 `clean` - Remove coverage data, prod, build.
+- 📜 `clean` - Remove build artifacts.
 
 **Development**
 
@@ -116,11 +114,6 @@ test validates schema behavior without requiring a running MongoDB instance.
 - 📜 `build` - Transpile and bundle source files with bun.
 - 📜 `build:watch` - Interactive watch mode to automatically transpile source files with bun.
 - 📜 `build:bin` - bun's bundler implements a --compile flag for generating a standalone binary from a TypeScript or JavaScript file, use this in your production environment to ensure optimal execution of your app.
-
-**Testing**
-
-- 📜 `test` - Run bun test.
-- 📜 `test:watch` - Interactive watch mode to automatically re-run tests with bun.
 
 **Linting and Formatting**
 

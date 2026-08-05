@@ -46,7 +46,7 @@ export async function pingDatabase(): Promise<void> {
 	await connection.command({ ping: 1 });
 }
 
-/** Closes the shared Mongoose connection, primarily for shutdown and tests. */
+/** Closes the shared Mongoose connection during graceful shutdown. */
 export async function closeDatabase(): Promise<void> {
 	if (mongoose.connection.readyState === 0) return;
 
