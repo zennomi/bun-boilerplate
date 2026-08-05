@@ -24,6 +24,7 @@ Instant Value - All basic tools included and configured:
 - 🖥️ Ungit for version control (git) with a GUI
 - 📘 Runtime library for TypeScript helpers with tslib
 - 🗃️ Utility functions for working with ts-api-utils
+- 🍃 MongoDB integration with a typed user-model reference
 
 ---
 
@@ -44,6 +45,51 @@ bun run pkg-upgrade # to upgrade outdated dependencies in interactive mode
 > NOTE 3: For certain configurations in the `package.json` file, you need to modify them to tailor them to your project (e.g: name, description, author, keywords, main, repository, ...).
 
 ---
+
+### 🍃 MongoDB
+
+The project uses [`mongoose`](https://www.npmjs.com/package/mongoose), a
+schema-based ODM for MongoDB. Copy the environment template and configure the
+database:
+
+```bash
+cp .env.example .env
+# Start MongoDB locally, or replace MONGODB_URI with an Atlas URI.
+```
+
+Set both values in `.env`:
+
+```dotenv
+MONGODB_URI=mongodb://localhost:27017
+MONGODB_DB_NAME=bun_boilerplate
+```
+
+`src/database/mongoose.ts` provides the shared Mongoose connection.
+`src/models/model.ts` provides `defineModel()`, the reusable model-registration
+helper for every new schema. `src/models/user.model.ts` is the reference model:
+it uses schema validation and normalization, timestamps, a unique email index,
+and create/find helpers.
+
+```ts
+import { connectDatabase } from "@/database/mongoose";
+import {
+	createUser,
+	ensureUserIndexes,
+	findUserByEmail,
+} from "@/models/user.model";
+
+await connectDatabase();
+await ensureUserIndexes();
+
+const user = await createUser({
+	email: "ada@example.com",
+	name: "Ada Lovelace",
+});
+const foundUser = await findUserByEmail(user.email);
+```
+
+Call `closeDatabase()` during graceful shutdown or test cleanup. The model unit
+test validates schema behavior without requiring a running MongoDB instance.
 
 ### 📌 NPM Scripts
 

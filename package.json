@@ -55,6 +55,7 @@
 		"npm-version:patch": "npm version patch"
 	},
 	"dependencies": {
+		"mongoose": "8.19.1",
 		"tslib": "^2.8.1"
 	},
 	"devDependencies": {
