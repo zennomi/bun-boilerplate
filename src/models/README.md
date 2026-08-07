@@ -22,3 +22,9 @@ const PostSchema = new Schema({
 
 export const PostModel = defineModel<Post>("Post", PostSchema);
 ```
+
+`http-response-cache.model.ts` is an optional generic model for public HTTP
+cache entries. It uses the same factory, owns the `http_response_cache`
+collection, and declares a unique canonical-URL index. Call
+`ensureHttpResponseCacheIndexes()` through the API cache helpers rather than
+creating that index manually.

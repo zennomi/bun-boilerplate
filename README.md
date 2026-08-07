@@ -89,6 +89,20 @@ const foundUser = await findUserByEmail(user.email);
 
 Call `closeDatabase()` during graceful shutdown.
 
+#### Optional public HTTP response cache
+
+The starter also includes a Mongo-backed cache for public GET responses. Set a
+positive `HTTP_CACHE_TTL_SECONDS` value, then use the helpers in
+`src/api/http-response-cache.ts` from the API client that owns the request.
+The cache canonicalizes query ordering and retains raw response metadata/body;
+it deliberately does not fetch, parse, or choose cacheable status codes.
+
+Only generate keys with `getPublicGetHttpResponseCacheKey()` for genuinely
+public GETs. It rejects cookies and common authorization headers, but callers
+must also avoid secrets in URLs, handle cache read/write failures gracefully,
+and define a separate private-key strategy for authenticated APIs. See
+[`src/api/README.md`](src/api/README.md) for a complete short example.
+
 ### 📌 NPM Scripts
 
 **Start**
