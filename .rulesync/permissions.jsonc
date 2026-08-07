@@ -6,19 +6,19 @@
       "git diff": "allow",
       "ls *": "allow",
       "rm -rf *": "deny",
-      "*": "ask"
+      "*": "ask",
     },
     "edit": {
-      "src/**": "allow"
+      "src/**": "allow",
     },
     "read": {
       ".env": "deny",
-      "credentials/**": "deny"
-    }
+      "credentials/**": "deny",
+    },
   },
   "codexcli": {
     "approval_policy": "on-request",
     "approvals_reviewer": "auto_review",
-    "base_permission_profile": ":danger-full-access"
-  }
+    "base_permission_profile": ":danger-full-access",
+  },
 }

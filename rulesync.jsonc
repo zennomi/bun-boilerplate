@@ -5,7 +5,7 @@
     "codexcli",
     "antigravity-ide",
     "antigravity-cli",
-    "pi"
+    "pi",
   ],
   "features": [
     "rules",
@@ -14,11 +14,9 @@
     "commands",
     "subagents",
     "skills",
-    "hooks"
+    "hooks",
   ],
-  "outputRoots": [
-    "."
-  ],
+  "outputRoots": ["."],
   "delete": true,
   "verbose": false,
   "silent": false,
@@ -26,5 +24,5 @@
   "simulateCommands": false,
   "simulateSubagents": false,
   "simulateSkills": false,
-  "gitignoreTargetsOnly": true
+  "gitignoreTargetsOnly": true,
 }

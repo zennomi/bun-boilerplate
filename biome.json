@@ -138,17 +138,7 @@
 		}
 	],
 	"files": {
-		"include": [
-			"**",
-			"!AGENTS.md",
-			"!CLAUDE.md",
-			"!.geminiignore",
-			"!.mcp.json",
-			"!.agents/mcp_config.json",
-			"!.codex/hooks.json",
-			"!.agents/hooks.json",
-			"!.pi/extensions/rulesync-hooks.ts"
-		],
+		"include": ["**"],
 		"ignore": [
 			"build",
 			"dist",
@@ -156,7 +146,16 @@
 			"bower_components",
 			"jspm_packages",
 			"backups",
-			"tmp"
+			"tmp",
+			".rulesync",
+			".pi/extensions/rulesync-hooks.ts",
+			"!AGENTS.md",
+			"!CLAUDE.md",
+			"!.geminiignore",
+			"!.mcp.json",
+			"!.agents/mcp_config.json",
+			"!.codex/hooks.json",
+			"!.agents/hooks.json"
 		]
 	}
 }
