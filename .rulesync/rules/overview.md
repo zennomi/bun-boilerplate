@@ -1,3 +1,10 @@
+---
+root: true
+targets: ["*"]
+description: "Project overview and general development guidelines"
+globs: ["**/*"]
+---
+
 # bun-boilerplate contributor guide
 
 ## Toolchain and commands

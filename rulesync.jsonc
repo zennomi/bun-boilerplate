@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/dyoshikawa/rulesync/releases/latest/download/config-schema.json",
+  "targets": [
+    "claudecode",
+    "codexcli",
+    "antigravity-ide",
+    "antigravity-cli",
+    "pi"
+  ],
+  "features": [
+    "rules",
+    "ignore",
+    "mcp",
+    "commands",
+    "subagents",
+    "skills",
+    "hooks"
+  ],
+  "outputRoots": [
+    "."
+  ],
+  "delete": true,
+  "verbose": false,
+  "silent": false,
+  "global": false,
+  "simulateCommands": false,
+  "simulateSubagents": false,
+  "simulateSkills": false,
+  "gitignoreTargetsOnly": true
+}
